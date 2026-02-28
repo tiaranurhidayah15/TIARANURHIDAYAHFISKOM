@@ -16,7 +16,7 @@ st.markdown("Analisis berbasis data untuk mendukung rekomendasi kebijakan")
 # ==========================================================
 # LOAD DATA
 # ==========================================================
-df = pd.read_excel("Data_Survei_Kepuasan_Layanan_Kepegawaian.xlsx")
+df = pd.read_excel("data_simulasi_50_siswa_20_soal_baru.xlsx")
 
 # Ambil indikator V1–V5 dan pastikan numerik
 indikator = df.iloc[:, 1:6].apply(pd.to_numeric, errors="coerce")
@@ -28,9 +28,9 @@ mean_scores = indikator.mean()
 ikm = (mean_scores.mean() / 5) * 100
 
 def kategori_ikm(x):
-    if x >= 81: return "Sangat Baik"
-    elif x >= 66: return "Baik"
-    elif x >= 51: return "Cukup"
+    if x >= 82: return "Sangat Baik"
+    elif x >= 67: return "Baik"
+    elif x >= 53: return "Cukup"
     else: return "Kurang"
 
 col1, col2, col3 = st.columns(3)
@@ -158,3 +158,4 @@ ax_rad.legend(loc="upper right")
 st.pyplot(fig_rad)
 
 st.success("📌 Segmentasi berhasil – siap untuk rekomendasi kebijakan")
+
